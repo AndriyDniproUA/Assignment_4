@@ -1,13 +1,14 @@
 package com.savytskyy.Lesson4.Phonebook;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        InMemoryContactsService inMemoryContactsService = new InMemoryContactsService();
-        Menu menu = new Menu();
-        menu.buildMenu();
-        while (menu.choice != 4) {
-            menu.run();
-        }
+        Scanner sc = new Scanner(System.in);
+        ContactsService contactsService = new InMemoryContactsService(sc);
+
+        Menu menu = new Menu(sc, contactsService);
+        menu.run();
     }
 }
