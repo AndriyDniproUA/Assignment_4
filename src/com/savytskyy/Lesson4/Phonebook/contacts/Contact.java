@@ -1,4 +1,4 @@
-package com.savytskyy.Lesson4.Phonebook;
+package com.savytskyy.Lesson4.Phonebook.contacts;
 
 public class Contact {
     private String name;

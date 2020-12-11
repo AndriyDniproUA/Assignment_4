@@ -1,4 +1,7 @@
-package com.savytskyy.Lesson4.Phonebook;
+package com.savytskyy.Lesson4.Phonebook.menu.menuactions;
+
+import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
+import com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
 
 import java.util.Scanner;
 

@@ -1,8 +1,12 @@
-package com.savytskyy.Lesson4.Phonebook;
+package com.savytskyy.Lesson4.Phonebook.contacts;
+
+import com.savytskyy.Lesson4.Phonebook.contacts.Contact;
+import com.savytskyy.Lesson4.Phonebook.contacts.ContactsList;
+import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
 
 import java.util.Scanner;
 
-public class InMemoryContactsService implements ContactsService{
+public class InMemoryContactsService implements ContactsService {
     Scanner sc;
     ContactsList contactsList = new ContactsList();
 

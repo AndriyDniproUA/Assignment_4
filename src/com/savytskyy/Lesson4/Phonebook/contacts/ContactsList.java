@@ -1,4 +1,6 @@
-package com.savytskyy.Lesson4.Phonebook;
+package com.savytskyy.Lesson4.Phonebook.contacts;
+
+import com.savytskyy.Lesson4.Phonebook.contacts.Contact;
 
 import java.util.Arrays;
 

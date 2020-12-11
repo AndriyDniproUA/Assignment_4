@@ -1,6 +1,8 @@
-package com.savytskyy.Lesson4.Phonebook;
+package com.savytskyy.Lesson4.Phonebook.menu.menuactions;
 
-public class QuitMenuAction implements MenuAction{
+import com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
+
+public class QuitMenuAction implements MenuAction {
     @Override
     public void doAction() {
         System.out.println("Good Bye!");
