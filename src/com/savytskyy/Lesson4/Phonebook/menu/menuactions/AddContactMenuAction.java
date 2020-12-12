@@ -20,9 +20,16 @@ public class AddContactMenuAction implements MenuAction {
         System.out.print("Please enter the name: ");
         name = sc.next();
         sc.nextLine();
-        System.out.print("Please enter the phone: ");
-        phone = sc.next();
-        sc.nextLine();
+        while (true) {
+            System.out.print("Please enter the phone: ");
+            phone = sc.next();
+            sc.nextLine();
+            if (checkPhoneNumberPattern(phone)) break;
+            else {
+                System.out.println("Your number should follow the pattern: +38 *** *** ** ** (without spaces)");
+                continue;
+            }
+        }
         Contact contact = new Contact(name, phone);
         contactsService.add(contact);
     }
@@ -36,4 +43,10 @@ public class AddContactMenuAction implements MenuAction {
     public boolean closeAfter() {
         return false;
     }
+
+    private boolean checkPhoneNumberPattern(String number) {
+        String phoneNumberPattern = "\\+38\\d{10}";
+        return number.matches(phoneNumberPattern);
+    }
+
 }

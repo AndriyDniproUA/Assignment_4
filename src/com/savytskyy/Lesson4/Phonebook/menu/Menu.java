@@ -19,9 +19,9 @@ public class Menu {
 
     public void run() {
         System.out.println("This is your new contact List manager:");
-        System.out.println();
 
         while (true) {
+            System.out.println("---------------------------------");
             System.out.println("You've got the following options:");
             showMenu();
             int choice = askUserChoice();
@@ -34,8 +34,6 @@ public class Menu {
             }
             if (actions[index].closeAfter()) break;
         }
-
-
     }
 
 
@@ -48,6 +46,7 @@ public class Menu {
         for (int i = 0; i < actions.length; i++) {
             System.out.println(i + 1 + "-" + actions[i].getName());
         }
+        System.out.println("---------------------------------");
     }
 
     private int askUserChoice() {
