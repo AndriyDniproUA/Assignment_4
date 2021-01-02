@@ -20,18 +20,13 @@ public class FindNameBeginningtMenuAction implements MenuAction {
 
     @Override
     public void doAction() {
-        ContactsList contacts = contactsService.getAll();
-        List<Contact> contactsArray = new ArrayList<>();
-
-        for (int i = 0; i < contacts.size(); i++) {
-            contactsArray.add(contacts.get(i));
-        }
+        List<Contact> contacts = contactsService.getAll();
 
         System.out.print("Please enter the beginning of the name to find: ");
         String targetNameBeginning = sc.nextLine();
 
         System.out.println("---------------------------------");
-        contactsArray.stream()
+        contacts.stream()
                 .filter(s -> s.getName().toLowerCase().startsWith(targetNameBeginning.toLowerCase()))
                 .forEach(s -> System.out.printf("%s, %s\n", s.getName(), s.getPhone()));
         System.out.println("---------------------------------");

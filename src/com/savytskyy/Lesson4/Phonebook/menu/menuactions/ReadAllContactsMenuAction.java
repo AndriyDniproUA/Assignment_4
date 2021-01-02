@@ -5,6 +5,8 @@ import com.savytskyy.Lesson4.Phonebook.contacts.ContactsList;
 import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
 import com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
 
+import java.util.List;
+
 public class ReadAllContactsMenuAction implements MenuAction {
     ContactsService contactsService;
 
@@ -14,16 +16,12 @@ public class ReadAllContactsMenuAction implements MenuAction {
 
     @Override
     public void doAction() {
-        ContactsList contacts = contactsService.getAll();
-
+        List<Contact> contacts = contactsService.getAll();
 
         if (contacts.size() > 0) {
             System.out.println("These are all contacts stored in the memory");
-            System.out.println("-----------------------------------------");
-            for (int i = 0; i < contacts.size(); i++) {
-                Contact contact = contacts.get(i);
-                System.out.printf( "%d- %s, %s\n", i + 1, contact.getName(), contact.getPhone());
-            }
+            contacts.stream()
+                    .forEach(contact ->System.out.printf( "%s, %s\n", contact.getName(), contact.getPhone()));
         } else {
             System.out.println("Sorry, contact list is empty");
             System.out.println();

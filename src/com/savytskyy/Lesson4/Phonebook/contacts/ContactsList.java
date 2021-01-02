@@ -13,6 +13,10 @@ public class ContactsList {
         return contacts.get(index);
     }
 
+    public List<Contact>  getAll(){
+        return contacts;
+    }
+
     public void set(int index, Contact c){
         if (indexIsValid(index)) contacts.set(index,c);
     }

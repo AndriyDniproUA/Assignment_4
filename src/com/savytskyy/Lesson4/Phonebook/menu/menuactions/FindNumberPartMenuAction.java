@@ -19,19 +19,14 @@ public class FindNumberPartMenuAction implements MenuAction {
 
     @Override
     public void doAction() {
-        ContactsList contacts = contactsService.getAll();
-        List<Contact> contactsArray = new ArrayList<>();
-
-        for (int i = 0; i < contacts.size(); i++) {
-            contactsArray.add(contacts.get(i));
-        }
+        List<Contact> contacts = contactsService.getAll();
 
 
         System.out.print("Please enter a part of the number you wish to find: ");
         String targetNumberPart = sc.nextLine();
         System.out.println("---------------------------------");
-//
-        contactsArray.stream()
+
+        contacts.stream()
                 .filter(s -> s.getPhone().contains(targetNumberPart))
                 .forEach(s -> System.out.printf("%s, %s\n", s.getName(), s.getPhone()))
         ;

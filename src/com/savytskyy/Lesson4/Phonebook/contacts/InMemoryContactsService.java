@@ -4,6 +4,7 @@ import com.savytskyy.Lesson4.Phonebook.contacts.Contact;
 import com.savytskyy.Lesson4.Phonebook.contacts.ContactsList;
 import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class InMemoryContactsService implements ContactsService {
@@ -15,8 +16,8 @@ public class InMemoryContactsService implements ContactsService {
     }
 
     @Override
-    public ContactsList getAll() {
-        return contactsList;
+    public List<Contact> getAll() {
+        return contactsList.getAll();
     }
 
     @Override
