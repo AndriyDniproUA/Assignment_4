@@ -4,6 +4,8 @@ import com.savytskyy.Lesson4.Phonebook.contacts.Contact;
 import com.savytskyy.Lesson4.Phonebook.contacts.ContactsList;
 import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class FindNumberPartMenuAction implements MenuAction {
@@ -18,23 +20,25 @@ public class FindNumberPartMenuAction implements MenuAction {
     @Override
     public void doAction() {
         ContactsList contacts = contactsService.getAll();
+        List<Contact> contactsArray = new ArrayList<>();
+
+        for (int i = 0; i < contacts.size(); i++) {
+            contactsArray.add(contacts.get(i));
+        }
+
+
         System.out.print("Please enter a part of the number you wish to find: ");
         String targetNumberPart = sc.nextLine();
         System.out.println("---------------------------------");
-        boolean foundAny = false;
+//
+        contactsArray.stream()
+                .filter(s -> s.getPhone().contains(targetNumberPart))
+                .forEach(s -> System.out.printf("%s, %s\n", s.getName(), s.getPhone()))
+        ;
 
-        for (int i = 0; i < contacts.size(); i++) {
-            String name = contacts.get(i).getName();
-            String phone = contacts.get(i).getPhone();
-            if (phone.contains(targetNumberPart)) {
-                System.out.printf("%d- %s, %s\n", i + 1, name, phone);
-                foundAny = true;
-            }
-        }
-        if (!foundAny) {
-            System.out.println("Sorry, no matches found!");
-        }
         System.out.println("---------------------------------");
+
+        //TODO АРТУР: КАК МОЖНО ВЫВЕСТИ ИНДЕКС НАЙДЕННОГО КОНТАКТА ПРИ ИСПОЛЬЗОВАНИИ ПОТОКА?
     }
 
     @Override

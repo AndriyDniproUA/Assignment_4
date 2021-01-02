@@ -2,41 +2,36 @@ package com.savytskyy.Lesson4.Phonebook.contacts;
 
 import com.savytskyy.Lesson4.Phonebook.contacts.Contact;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ContactsList {
-    private Contact[] contacts = new Contact[0];
+    private List<Contact> contacts = new ArrayList<>();
 
     public Contact get(int index){
-        return contacts[index];
+        return contacts.get(index);
     }
 
     public void set(int index, Contact c){
-        contacts[index] = c;
+        if (indexIsValid(index)) contacts.set(index,c);
     }
 
     public int size(){
-        return contacts.length;
+        return contacts.size();
     }
 
     public void remove (int index){
-        if (index >=0 && index < contacts.length){
-            Contact[] buffer = new Contact[contacts.length-1];
-            for (int i = 0; i < buffer.length; i++) {
-                buffer [i] = contacts [i<index? i : i+1];
-            }
-            contacts = buffer;
-        }
+        if (indexIsValid(index)) contacts.remove(index) ;
     }
 
     public void add(Contact c){
-        contacts = Arrays.copyOf(contacts, contacts.length+1);
-        contacts[contacts.length-1] = c;
+        contacts.add(c);
     }
 
-
-
-
+    private boolean indexIsValid (int index){
+        return index >=0 && index < contacts.size();
+    }
 
 
 }

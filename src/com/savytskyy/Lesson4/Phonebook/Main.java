@@ -12,6 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         ContactsService contactsService = new InMemoryContactsService(sc);
         contactsService.add(new Contact("Sue", "+380671112233"));
         contactsService.add(new Contact("Tim", "+380662223344"));

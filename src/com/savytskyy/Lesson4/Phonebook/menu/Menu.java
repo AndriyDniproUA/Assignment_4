@@ -3,16 +3,18 @@ package com.savytskyy.Lesson4.Phonebook.menu;
 import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
 import com.savytskyy.Lesson4.Phonebook.menu.menuactions.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
     private Scanner sc;
     private ContactsService contactsService;
-    private MenuAction[] actions;
+    private List<MenuAction> actions;
 
     public Menu(Scanner sc, ContactsService contactsService) {
-        actions = new MenuAction[0];
+        actions = new ArrayList<MenuAction>();
         this.sc = sc;
         this.contactsService = contactsService;
     }
@@ -27,24 +29,23 @@ public class Menu {
             int choice = askUserChoice();
             int index = choice - 1;
             if (indexIsValid(index)) {
-                actions[index].doAction();
+                actions.get(index).doAction();
             } else {
-                System.out.printf("Please enter the number within 1-%d range\n", actions.length);
+                System.out.printf("Please enter the number within 1-%d range\n", actions.size());
                 continue;
             }
-            if (actions[index].closeAfter()) break;
+            if (actions.get(index).closeAfter()) break;
         }
     }
 
 
     public void addAction(MenuAction action) {
-        actions = Arrays.copyOf(actions, actions.length + 1);
-        actions[actions.length - 1] = action;
+        actions.add(action);
     }
 
     public void showMenu() {
-        for (int i = 0; i < actions.length; i++) {
-            System.out.println(i + 1 + "-" + actions[i].getName());
+        for (int i = 0; i < actions.size(); i++) {
+            System.out.println(i + 1 + "-" + actions.get(i).getName());
         }
         System.out.println("---------------------------------");
     }
@@ -57,7 +58,7 @@ public class Menu {
     }
 
     private boolean indexIsValid(int index) {
-        return index >= 0 && index < actions.length;
+        return index >= 0 && index < actions.size();
     }
 
 
