@@ -1,10 +1,10 @@
-package com.savytskyy.Lesson4.Phonebook;
+package main.java.com.savytskyy.Lesson4.Phonebook;
 
-import com.savytskyy.Lesson4.Phonebook.contacts.Contact;
-import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
-import com.savytskyy.Lesson4.Phonebook.contacts.InMemoryContactsService;
-import com.savytskyy.Lesson4.Phonebook.menu.Menu;
-import com.savytskyy.Lesson4.Phonebook.menu.menuactions.*;
+import main.java.com.savytskyy.Lesson4.Phonebook.contacts.Contact;
+import main.java.com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
+import main.java.com.savytskyy.Lesson4.Phonebook.contacts.InMemoryContactsService;
+import main.java.com.savytskyy.Lesson4.Phonebook.menu.Menu;
+import main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions.*;
 
 import java.util.Scanner;
 

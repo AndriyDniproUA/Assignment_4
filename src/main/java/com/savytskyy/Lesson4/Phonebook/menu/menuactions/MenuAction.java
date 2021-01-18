@@ -1,4 +1,4 @@
-package com.savytskyy.Lesson4.Phonebook.menu.menuactions;
+package main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions;
 
 public interface MenuAction {
     void doAction();

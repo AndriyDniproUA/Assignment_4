@@ -1,6 +1,6 @@
-package com.savytskyy.Lesson4.Phonebook.menu.menuactions;
+package main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions;
 
-import com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
+import main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
 
 public class QuitMenuAction implements MenuAction {
     @Override

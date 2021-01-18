@@ -1,7 +1,7 @@
-package com.savytskyy.Lesson4.Phonebook.menu;
+package main.java.com.savytskyy.Lesson4.Phonebook.menu;
 
-import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
-import com.savytskyy.Lesson4.Phonebook.menu.menuactions.*;
+import main.java.com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
+import main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
