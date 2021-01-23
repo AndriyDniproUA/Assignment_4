@@ -12,8 +12,8 @@ public class Contact {
         PHONE, EMAIL
     }
 
-    private ContactType type;
     private String name;
+    private ContactType type;
     private String contactInfo;
 
 

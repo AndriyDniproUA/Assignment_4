@@ -1,0 +1,5 @@
+Вася[phone:+380930001122]
+Вася[email:vasia@example.com]
+Петя[email:petia@example.com]
+Андрій[phone:+380676370713]
+Саша[email:sasha@gmail.com]

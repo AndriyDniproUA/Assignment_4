@@ -49,8 +49,9 @@ public class AddContactMenuAction implements MenuAction {
                         continue;
                     }
                 }
-                Contact contact = new Contact(type, name, phone);
+                Contact contact = new Contact(name, type, phone);
                 contactsService.add(contact);
+                break;
             }
             case EMAIL: {
                 while (true) {
@@ -63,13 +64,12 @@ public class AddContactMenuAction implements MenuAction {
                         continue;
                     }
                 }
-                Contact contact = new Contact(type, name, email);
+                Contact contact = new Contact(name, type, email);
                 contactsService.add(contact);
+                break;
             }
 
         }
-
-
 
     }
 
