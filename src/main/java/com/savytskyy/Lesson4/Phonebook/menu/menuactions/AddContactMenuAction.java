@@ -28,12 +28,14 @@ public class AddContactMenuAction implements MenuAction {
         System.out.print("Please enter contact type (EMAIl/PHONE): ");
         while (true) {
             typeInput = sc.next();
-            System.out.println(typeInput);
+            sc.nextLine();
+
             if (typeInput.toLowerCase().equals("email") || typeInput.toLowerCase().equals("phone")) break;
             else {
                 System.out.println("Please choose one of two options: EMAIl/PHONE");
             }
         }
+
         type = Contact.ContactType.valueOf(typeInput.toUpperCase());
 
 
@@ -66,6 +68,7 @@ public class AddContactMenuAction implements MenuAction {
                 }
                 Contact contact = new Contact(name, type, email);
                 contactsService.add(contact);
+                System.out.println("Contact was added!");
                 break;
             }
 

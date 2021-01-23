@@ -21,7 +21,7 @@ public class Main {
 
         //ContactsService contactsService = new InMemoryContactsService(sc);
         ContactsService contactsService = new FileContactsService(sc);
-        readStorageFile(contactsService);
+
 
 
 //        contactsService.add(new Contact(Contact.ContactType.PHONE, "Sue", "+380671112233"));
@@ -34,48 +34,9 @@ public class Main {
         menu.addAction(new RemoveContactMenuAction(sc, contactsService));
         menu.addAction(new FindNumberPartMenuAction(sc, contactsService));
         menu.addAction(new FindNameBeginningtMenuAction(sc, contactsService));
-        menu.addAction(new QuitMenuAction(contactsService));
+        menu.addAction(new QuitMenuAction());
         menu.run();
     }
-
-
-    public static void readStorageFile(ContactsService contactsService) {
-        try (InputStream is = new FileInputStream("contacts.txt")) {
-            InputStreamReader isr = new InputStreamReader(is, "UTF-8");
-            BufferedReader br = new BufferedReader(isr);
-
-            //Pattern pattern = Pattern.compile("([А-Яа-яA-Za-z]+)\\[(\\w+):(\\+?\\w+@?\\w+.\\w{3})");
-
-            String sub;
-            while ((sub = br.readLine()) != null) {
-                //System.out.println(sub);
-                String[] contactData = sub.split("[\\[,:,\\]]");
-
-                String name = contactData[0];
-                Contact.ContactType type =  Contact.ContactType.valueOf(contactData[1].toUpperCase());
-                String contactInfo = contactData[2];
-
-//                Matcher matcher = pattern.matcher(sub);
-//
-//                if (matcher.find()) {
-//                    String name = matcher.group(1);
-//                    String type = matcher.group(2);
-//                    String contactInfo = matcher.group(3);
-//
-                    contactsService.add(new Contact(name,type, contactInfo));
-//                }
-            }
-        } catch( IOException e)
-
-        {
-            e.printStackTrace();
-        }
-    }
-
-
-
-
-
 }
 
 

@@ -8,43 +8,40 @@ import java.io.*;
 import java.util.List;
 
 public class QuitMenuAction implements MenuAction {
-    ContactsService contactsService;
 
-    public QuitMenuAction(ContactsService contactsService) {
-        this.contactsService = contactsService;
+
+    public QuitMenuAction() {
     }
 
     @Override
     public void doAction() {
-        List<Contact> contacts = contactsService.getAll();
-        System.out.println("All your contacts will be saved in the file");
+        //List<Contact> contacts = contactsService.getAll();
+
+        //System.out.println("All your contacts will be saved in the file");
 
 
-        try (OutputStream os = new FileOutputStream("contacts.txt")) {
-            OutputStreamWriter osr = new OutputStreamWriter(os, "UTF-8");
-            BufferedWriter bw = new BufferedWriter(osr);
-
-            //(OutputStream os = new BufferedOutputStream(new FileOutputStream("contacts.txt")))
-
-            contacts.stream()
-                    .forEach(contact -> {
-                        try {
-                            bw.write((contact.getName() + '['
-                                    + contact.getType().toString().toLowerCase() + ':'
-                                    + contact.getContactInfo() + ']'+'\n'));
-                                    //.getBytes());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            bw.flush();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try (OutputStream os = new FileOutputStream("contacts.txt")) {
+//            OutputStreamWriter osr = new OutputStreamWriter(os, "UTF-8");
+//            BufferedWriter bw = new BufferedWriter(osr);
+//            contacts.stream()
+//                    .forEach(contact -> {
+//                        try {
+//                            bw.write((contact.getName() + '['
+//                                    + contact.getType().toString().toLowerCase() + ':'
+//                                    + contact.getContactInfo() + ']'+'\n'));
+//                                    //.getBytes());
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                        try {
+//                            bw.flush();
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    });
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
         System.out.println("Good Bye!");
