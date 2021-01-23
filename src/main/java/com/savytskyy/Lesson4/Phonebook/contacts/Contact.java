@@ -5,9 +5,17 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
+
+
 public class Contact {
+   public enum ContactType {
+        PHONE, EMAIL
+    }
+
+    private ContactType type;
     private String name;
-    private String phone;
+    private String contactInfo;
+
 
 //    public Contact(String name, String phone) {
 //        this.name = name;

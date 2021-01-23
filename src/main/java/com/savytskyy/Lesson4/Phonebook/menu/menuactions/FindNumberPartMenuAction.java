@@ -27,13 +27,13 @@ public class FindNumberPartMenuAction implements MenuAction {
         System.out.println("---------------------------------");
 
         contacts.stream()
-                .filter(s -> s.getPhone().contains(targetNumberPart))
-                .forEach(s -> System.out.printf("%s, %s\n", s.getName(), s.getPhone()))
+                .filter(s -> s.getContactInfo().contains(targetNumberPart))
+                .forEach(s -> System.out.printf("%s, %s\n", s.getName(), s.getContactInfo()))
         ;
 
         System.out.println("---------------------------------");
 
-        //TODO АРТУР: КАК МОЖНО ВЫВЕСТИ ИНДЕКС НАЙДЕННОГО КОНТАКТА ПРИ ИСПОЛЬЗОВАНИИ ПОТОКА?
+
     }
 
     @Override

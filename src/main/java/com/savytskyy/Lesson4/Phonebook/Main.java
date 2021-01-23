@@ -14,9 +14,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         ContactsService contactsService = new InMemoryContactsService(sc);
-        contactsService.add(new Contact("Sue", "+380671112233"));
-        contactsService.add(new Contact("Tim", "+380662223344"));
-        contactsService.add(new Contact("Bob", "+380952223344"));
+        contactsService.add(new Contact(Contact.ContactType.PHONE, "Sue", "+380671112233"));
+        contactsService.add(new Contact(Contact.ContactType.PHONE,"Tim", "+380662223344"));
+        contactsService.add(new Contact(Contact.ContactType.PHONE,"Bob", "+380952223344"));
 
 
         Menu menu = new Menu(sc, contactsService);

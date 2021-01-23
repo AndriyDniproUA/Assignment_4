@@ -21,7 +21,7 @@ public class ReadAllContactsMenuAction implements MenuAction {
         if (contacts.size() > 0) {
             System.out.println("These are all contacts stored in the memory");
             contacts.stream()
-                    .forEach(contact ->System.out.printf( "%s, %s\n", contact.getName(), contact.getPhone()));
+                    .forEach(contact ->System.out.printf( "%s, %s, %s\n", contact.getType(), contact.getName(), contact.getContactInfo()));
         } else {
             System.out.println("Sorry, contact list is empty");
             System.out.println();

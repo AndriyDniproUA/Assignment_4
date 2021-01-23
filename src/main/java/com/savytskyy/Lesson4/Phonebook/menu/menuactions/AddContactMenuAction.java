@@ -5,9 +5,11 @@ import main.java.com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
 
 import java.util.Scanner;
 
+import static main.java.com.savytskyy.Lesson4.Phonebook.contacts.Contact.ContactType.PHONE;
+
 public class AddContactMenuAction implements MenuAction {
-   Scanner sc;
-   ContactsService contactsService;
+    Scanner sc;
+    ContactsService contactsService;
 
     public AddContactMenuAction(Scanner sc, ContactsService contactsService) {
         this.sc = sc;
@@ -16,22 +18,59 @@ public class AddContactMenuAction implements MenuAction {
 
     @Override
     public void doAction() {
-        String name, phone;
+        Contact.ContactType type;
+        String name, phone, email, typeInput;
+
         System.out.print("Please enter the name: ");
         name = sc.next();
         sc.nextLine();
+
+        System.out.print("Please enter contact type (EMAIl/PHONE): ");
         while (true) {
-            System.out.print("Please enter the phone: ");
-            phone = sc.next();
-            sc.nextLine();
-            if (checkPhoneNumberPattern(phone)) break;
+            typeInput = sc.next();
+            System.out.println(typeInput);
+            if (typeInput.toLowerCase().equals("email") || typeInput.toLowerCase().equals("phone")) break;
             else {
-                System.out.println("Your number should follow the pattern: +38 *** *** ** ** (without spaces)");
-                continue;
+                System.out.println("Please choose one of two options: EMAIl/PHONE");
             }
         }
-        Contact contact = new Contact(name, phone);
-        contactsService.add(contact);
+        type = Contact.ContactType.valueOf(typeInput.toUpperCase());
+
+
+        switch (type) {
+            case PHONE: {
+                while (true) {
+                    System.out.print("Please enter the phone: ");
+                    phone = sc.next();
+                    sc.nextLine();
+                    if (checkPhoneNumberPattern(phone)) break;
+                    else {
+                        System.out.println("Your number should follow the pattern: +38 *** *** ** ** (without spaces)");
+                        continue;
+                    }
+                }
+                Contact contact = new Contact(type, name, phone);
+                contactsService.add(contact);
+            }
+            case EMAIL: {
+                while (true) {
+                    System.out.print("Please enter the email address: ");
+                    email = sc.next();
+                    sc.nextLine();
+                    if (checkEmailPattern(email)) break;
+                    else {
+                        System.out.println("Your email should follow the pattern: userName@mailServer.TLD");
+                        continue;
+                    }
+                }
+                Contact contact = new Contact(type, name, email);
+                contactsService.add(contact);
+            }
+
+        }
+
+
+
     }
 
     @Override
@@ -48,5 +87,12 @@ public class AddContactMenuAction implements MenuAction {
         String phoneNumberPattern = "\\+38\\d{10}";
         return number.matches(phoneNumberPattern);
     }
+
+    private boolean checkEmailPattern(String email) {
+        String emailPattern = ".+@.+\\.\\w{3}";
+        return email.matches(emailPattern);
+    }
+
+
 
 }

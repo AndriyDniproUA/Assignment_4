@@ -1,5 +1,6 @@
 package main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions;
 
+import main.java.com.savytskyy.Lesson4.Phonebook.contacts.Contact;
 import main.java.com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
 import main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
 
@@ -16,14 +17,24 @@ public class RemoveContactMenuAction implements MenuAction {
 
     @Override
     public void doAction() {
-        System.out.println("Please enter the the number of the contact that needs to be removed: ");
-        int index = sc.nextInt() - 1;
+        System.out.println("Please enter the the Name of the contact that needs to be removed: ");
+        String name = sc.next();
         sc.nextLine();
+        boolean contactRemoved = false;
 
-        if (index >= 0 && index < contactsService.getAll().size()) {
-            contactsService.remove(index);
-        } else {
-            System.out.println("Sorry, you entered the wrong number!");
+        int index = 0;
+
+        for (Contact contact : contactsService.getAll()) {
+            if (contact.getName().equals(name)) {
+                contactsService.remove(index);
+                contactRemoved = true;
+                break;
+            }
+            index++;
+        }
+
+        if (!contactRemoved) {
+            System.out.println("Sorry, you entered the wrong Name!");
             System.out.println();
         }
     }

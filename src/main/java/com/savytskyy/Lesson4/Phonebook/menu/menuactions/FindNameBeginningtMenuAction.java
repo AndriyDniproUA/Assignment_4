@@ -28,11 +28,8 @@ public class FindNameBeginningtMenuAction implements MenuAction {
         System.out.println("---------------------------------");
         contacts.stream()
                 .filter(s -> s.getName().toLowerCase().startsWith(targetNameBeginning.toLowerCase()))
-                .forEach(s -> System.out.printf("%s, %s\n", s.getName(), s.getPhone()));
+                .forEach(s -> System.out.printf("%s, %s\n", s.getName(), s.getContactInfo()));
         System.out.println("---------------------------------");
-
-        //TODO АРТУР: КАК МОЖНО ВЫВЕСТИ ИНДЕКС НАЙДЕННОГО КОНТАКТА ПРИ ИСПОЛЬЗОВАНИИ ПОТОКА?
-
     }
 
     @Override
