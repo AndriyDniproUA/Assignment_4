@@ -1,7 +1,4 @@
-package main.java.com.savytskyy.Lesson4.Phonebook.contacts;
-
-import main.java.com.savytskyy.Lesson4.Phonebook.contacts.Contact;
-import main.java.com.savytskyy.Lesson4.Phonebook.contacts.ContactsList;
+package com.savytskyy.Lesson4.Phonebook.contacts;
 
 import java.util.List;
 

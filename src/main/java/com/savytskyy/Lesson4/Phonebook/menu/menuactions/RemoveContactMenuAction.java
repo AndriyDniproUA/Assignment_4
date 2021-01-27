@@ -1,8 +1,8 @@
-package main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions;
+package com.savytskyy.Lesson4.Phonebook.menu.menuactions;
 
-import main.java.com.savytskyy.Lesson4.Phonebook.contacts.Contact;
-import main.java.com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
-import main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
+import com.savytskyy.Lesson4.Phonebook.contacts.Contact;
+import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
+import com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class RemoveContactMenuAction implements MenuAction {
 
     @Override
     public void doAction() {
-        System.out.println("Please enter the the Name of the contact that needs to be removed: ");
+        System.out.println("Please enter the Name of the contact that needs to be removed: ");
         String name = sc.next();
         sc.nextLine();
         boolean contactRemoved = false;
@@ -25,7 +25,7 @@ public class RemoveContactMenuAction implements MenuAction {
         int index = 0;
 
         for (Contact contact : contactsService.getAll()) {
-            if (contact.getName().equals(name)) {
+            if (contact.getName().toLowerCase().equals(name.toLowerCase())) {
                 contactsService.remove(index);
                 contactRemoved = true;
                 break;

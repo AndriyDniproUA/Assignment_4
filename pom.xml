@@ -10,6 +10,8 @@
 
     <properties>
         <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     </properties>
 
 
@@ -65,7 +67,7 @@
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             <addClasspath>true</addClasspath>
-                            <mainClass>main.java.com.savytskyy.Lesson4.Phonebook.Main</mainClass>
+                            <mainClass>com.savytskyy.Lesson4.Phonebook.menu.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

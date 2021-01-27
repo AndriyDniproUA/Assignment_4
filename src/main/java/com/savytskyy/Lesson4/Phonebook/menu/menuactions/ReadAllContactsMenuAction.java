@@ -1,9 +1,8 @@
-package main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions;
+package com.savytskyy.Lesson4.Phonebook.menu.menuactions;
 
-import main.java.com.savytskyy.Lesson4.Phonebook.contacts.Contact;
-import main.java.com.savytskyy.Lesson4.Phonebook.contacts.ContactsList;
-import main.java.com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
-import main.java.com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
+import com.savytskyy.Lesson4.Phonebook.contacts.Contact;
+import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
+import com.savytskyy.Lesson4.Phonebook.menu.menuactions.MenuAction;
 
 import java.util.List;
 
@@ -19,7 +18,8 @@ public class ReadAllContactsMenuAction implements MenuAction {
         List<Contact> contacts = contactsService.getAll();
 
         if (contacts.size() > 0) {
-            System.out.println("These are all contacts stored in the memory");
+            System.out.println("These are all contacts stored:");
+            System.out.println("-----------------------------------------");
             contacts.stream()
                     .forEach(contact ->System.out.printf( "%s, %s, %s\n",
                             contact.getName(), contact.getType().toString().toLowerCase(), contact.getContactInfo()));

@@ -1,4 +1,4 @@
-package main.java.com.savytskyy.Lesson4.Phonebook.contacts;
+package com.savytskyy.Lesson4.Phonebook.contacts;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
