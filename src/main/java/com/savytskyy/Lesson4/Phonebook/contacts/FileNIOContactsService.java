@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class FileContactsService implements ContactsService {
+public class FileNIOContactsService implements ContactsService {
     Scanner sc;
     //ContactsList contactsList = new ContactsList();
 
-    public FileContactsService(Scanner sc) {
+    public FileNIOContactsService(Scanner sc) {
         this.sc = sc;
     }
 

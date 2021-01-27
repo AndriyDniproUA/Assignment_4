@@ -1,7 +1,7 @@
 package com.savytskyy.Lesson4.Phonebook.menu;
 
 import com.savytskyy.Lesson4.Phonebook.contacts.ContactsService;
-import com.savytskyy.Lesson4.Phonebook.contacts.FileContactsService;
+import com.savytskyy.Lesson4.Phonebook.contacts.FileNIOContactsService;
 //import main.java.com.savytskyy.Lesson4.Phonebook.contacts.InMemoryContactsService;
 import com.savytskyy.Lesson4.Phonebook.menu.menuactions.*;
 
@@ -13,7 +13,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         //ContactsService contactsService = new InMemoryContactsService(sc);
-        ContactsService contactsService = new FileContactsService(sc);
+        ContactsService contactsService = new FileNIOContactsService(sc);
 
 //        contactsService.add(new Contact(Contact.ContactType.PHONE, "Sue", "+380671112233"));
 //        contactsService.add(new Contact(Contact.ContactType.PHONE,"Tim", "+380662223344"));
